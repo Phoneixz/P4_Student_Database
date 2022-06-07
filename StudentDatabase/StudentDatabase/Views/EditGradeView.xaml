@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="StudentDatabase.Views.EditGradeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:StudentDatabase.Views"
+             xmlns:vm="clr-namespace:StudentDatabase.ViewModels"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.DataContext>
+        <vm:GradeViewModel/>
+    </UserControl.DataContext>
+    <Grid>
+        <Grid.Resources>
+            <Style TargetType="Label" BasedOn="{StaticResource Labels}"/>
+            <Style TargetType="Button" BasedOn="{StaticResource Buttons}"/>
+        </Grid.Resources>
+        <StackPanel>
+            <Label Content="Dodaj nową ocenę do bazy"/>
+            <Label Content="Wartość oceny"/>
+            <TextBox Text="{Binding GradeValue}"/>
+            <Label Content="Data uzyskania"/>
+            <TextBox Text="{Binding GradeDate}"/>
+            <Label Content="Nazwa oceny"/>
+            <TextBox Text="{Binding GradeName}"/>
+            <Label Content="Typ oceny"/>
+            <TextBox Text="{Binding GradeType}"/>
+            <Button Content="Zapisz zmiany" Command="{Binding EditGradeCommand}" CommandParameter="{Binding Grade}"/>
+        </StackPanel>
+    </Grid>
+</UserControl>
